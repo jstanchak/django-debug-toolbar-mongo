@@ -1,5 +1,6 @@
 ==================================
-Django Debug Toolbar MongoDB Panel - SUPPORTS PYTHON 3
+Django Debug Toolbar MongoDB Panel 
+- SUPPORTS PYTHON 3!!
 ==================================
 :Info: An extension panel for Rob Hudson's Django Debug Toolbar that adds
        MongoDB debugging information
