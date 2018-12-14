@@ -2,7 +2,7 @@ import functools
 import time
 import inspect
 import os
-import SocketServer
+import socketserver
 
 import django
 from django.conf import settings
@@ -222,7 +222,7 @@ def _get_ordering(son):
         return '{0}{1}'.format({-1: '-', 1: '+'}[direction], field)
 
     if '$orderby' in son:
-        return ', '.join(fmt(f, d) for f, d in son['$orderby'].items())
+        return ', '.join(fmt(f, d) for f, d in list(son['$orderby'].items()))
 
 # Taken from Django Debug Toolbar 0.8.6
 def _tidy_stacktrace(stack):
@@ -236,7 +236,7 @@ def _tidy_stacktrace(stack):
     """
     django_path = os.path.realpath(os.path.dirname(django.__file__))
     django_path = os.path.normpath(os.path.join(django_path, '..'))
-    socketserver_path = os.path.realpath(os.path.dirname(SocketServer.__file__))
+    socketserver_path = os.path.realpath(os.path.dirname(socketserver.__file__))
     pymongo_path = os.path.realpath(os.path.dirname(pymongo.__file__))
 
     trace = []
